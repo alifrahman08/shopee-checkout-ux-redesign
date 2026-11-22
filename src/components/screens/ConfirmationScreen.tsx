@@ -74,7 +74,7 @@ export const ConfirmationScreen: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-full bg-shopee-bgLight pb-32">
+    <div className="flex flex-col min-h-full bg-shopee-bgLight flex-1">
       {/* 1. Validation Alert Banner if error exists */}
       {paymentValidationError && (
         <div className="mx-3 mt-3 p-3 bg-red-50 border border-red-200 rounded-xl flex items-center gap-2.5 text-xs text-red-700 animate-in slide-in-from-top-2">
@@ -240,7 +240,7 @@ export const ConfirmationScreen: React.FC = () => {
       </div>
 
       {/* Floating Bottom Bar: Bayar Sekarang */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-float-bottom px-4 py-2.5 z-20 flex items-center justify-between">
+      <div className="sticky bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 shadow-float-bottom px-4 py-2.5 z-20 flex items-center justify-between mt-auto">
         <div>
           <div className="text-[11px] text-gray-500 font-medium">Total Pembayaran:</div>
           <div className="text-lg font-black text-shopee-primary leading-tight">

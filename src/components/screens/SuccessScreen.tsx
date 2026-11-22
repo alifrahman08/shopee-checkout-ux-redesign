@@ -58,7 +58,7 @@ export const SuccessScreen: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-full bg-shopee-bgLight pb-28 animate-in fade-in duration-300">
+    <div className="flex flex-col min-h-full bg-shopee-bgLight flex-1 animate-in fade-in duration-300">
       {/* 1. Header Banner Sukses */}
       <div className="bg-gradient-to-b from-emerald-600 to-emerald-700 text-white pt-8 pb-10 px-4 text-center rounded-b-3xl shadow-md relative overflow-hidden">
         {/* Subtle decorative circles */}
@@ -252,7 +252,7 @@ export const SuccessScreen: React.FC = () => {
       </div>
 
       {/* 5. Fixed Bottom Action Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-float-bottom p-3 z-20 flex gap-2.5">
+      <div className="sticky bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 shadow-float-bottom p-3 z-20 flex gap-2.5 mt-auto">
         <button
           onClick={resetAll}
           className="flex-1 py-3 bg-shopee-primary hover:bg-shopee-primaryHover text-white font-bold rounded-xl text-xs shadow-md shadow-shopee-primary/25 active:scale-98 transition-all flex items-center justify-center gap-1.5"

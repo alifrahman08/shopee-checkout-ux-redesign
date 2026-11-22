@@ -32,7 +32,7 @@ export const CheckoutScreen: React.FC = () => {
   const [isShippingModalOpen, setIsShippingModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-full bg-shopee-bgLight pb-28">
+    <div className="flex flex-col min-h-full bg-shopee-bgLight flex-1">
       {/* 1. Alamat Pengiriman Section */}
       <div className="bg-white border-b border-gray-100 p-3.5 mb-2.5 shadow-xs">
         <div className="flex items-center justify-between pb-2 border-b border-gray-100">
@@ -186,7 +186,7 @@ export const CheckoutScreen: React.FC = () => {
       </div>
 
       {/* Floating Bottom Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-float-bottom px-3.5 py-2.5 z-20 flex items-center justify-between">
+      <div className="sticky bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 shadow-float-bottom px-3.5 py-2.5 z-20 flex items-center justify-between mt-auto">
         <div>
           <div className="text-[11px] text-gray-500">Estimasi Sementara:</div>
           <div className="text-base font-extrabold text-shopee-primary leading-tight">

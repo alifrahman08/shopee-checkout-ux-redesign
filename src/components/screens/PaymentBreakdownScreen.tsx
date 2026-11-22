@@ -35,7 +35,7 @@ export const PaymentBreakdownScreen: React.FC = () => {
   const [isExplainerModalOpen, setIsExplainerModalOpen] = useState(false);
 
   return (
-    <div className="flex flex-col min-h-full bg-shopee-bgLight pb-32">
+    <div className="flex flex-col min-h-full bg-shopee-bgLight flex-1">
       {/* 1. HERO CARD: PENEKANAN VISUAL TOTAL AKHIR & PENGHEMATAN */}
       <div className="bg-gradient-to-br from-shopee-primary via-[#F54B2A] to-[#E03A17] text-white p-4 mx-3 mt-3 rounded-2xl shadow-lg relative overflow-hidden">
         {/* Subtle decorative circles */}
@@ -331,7 +331,7 @@ export const PaymentBreakdownScreen: React.FC = () => {
       </div>
 
       {/* Floating Bottom Bar: Action to Screen 4 */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-float-bottom px-4 py-2.5 z-20 flex items-center justify-between">
+      <div className="sticky bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 shadow-float-bottom px-4 py-2.5 z-20 flex items-center justify-between mt-auto">
         <div>
           <div className="text-[11px] text-gray-500 font-medium">Total Akhir Terverifikasi:</div>
           <div className="text-lg font-black text-shopee-primary leading-tight">

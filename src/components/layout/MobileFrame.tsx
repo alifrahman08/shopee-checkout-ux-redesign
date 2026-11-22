@@ -153,22 +153,23 @@ export const MobileFrame: React.FC<MobileFrameProps> = ({ children }) => {
 
       {/* Main Prototype Frame */}
       <div
-        className={`w-full transition-all duration-300 ${
+        id="phone-device-frame"
+        className={`w-full transition-all duration-300 [transform:translateZ(0)] ${
           isPhoneFrame
-            ? 'max-w-[420px] rounded-[48px] p-3 bg-neutral-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-4 border-neutral-700 ring-1 ring-neutral-600'
+            ? 'max-w-[395px] h-[812px] rounded-[50px] p-3 bg-neutral-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] border-4 border-neutral-700 ring-1 ring-neutral-600 flex flex-col relative overflow-hidden'
             : 'max-w-md rounded-2xl bg-white shadow-xl'
         }`}
       >
         <div
-          className={`bg-white text-gray-900 overflow-hidden relative flex flex-col ${
+          className={`bg-white text-gray-900 overflow-hidden relative flex flex-col h-full ${
             isPhoneFrame
-              ? 'rounded-[38px] min-h-[820px] max-h-[880px] overflow-y-auto scrollbar-thin'
+              ? 'rounded-[40px] flex-1 flex flex-col overflow-hidden'
               : 'min-h-[750px]'
           }`}
         >
           {/* Smartphone Status Bar (Only in phone frame mode) */}
           {isPhoneFrame && (
-            <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md px-6 pt-3 pb-2 flex items-center justify-between text-xs text-gray-900 border-b border-gray-50">
+            <div className="shrink-0 bg-white/95 backdrop-blur-md px-6 pt-3 pb-1.5 flex items-center justify-between text-xs text-gray-900 border-b border-gray-50 z-30">
               <span className="font-bold text-[13px] tracking-tight">18:05</span>
 
               {/* Dynamic Island Pill */}
@@ -183,17 +184,23 @@ export const MobileFrame: React.FC<MobileFrameProps> = ({ children }) => {
           )}
 
           {/* Navigation Header */}
-          <HeaderNav onOpenExplainer={() => setIsExplainerOpen(true)} />
+          <div className="shrink-0">
+            <HeaderNav onOpenExplainer={() => setIsExplainerOpen(true)} />
+          </div>
 
           {/* 5-Step Visual Progress Bar */}
-          <StepProgressBar />
+          <div className="shrink-0">
+            <StepProgressBar />
+          </div>
 
-          {/* Active Screen Content */}
-          <main className="flex-1 relative overflow-y-auto">{children}</main>
+          {/* Active Screen Content (Scrollable inside phone) */}
+          <main className="flex-1 overflow-y-auto relative scrollbar-thin flex flex-col">
+            {children}
+          </main>
 
           {/* Home indicator bar (Phone frame mode) */}
           {isPhoneFrame && (
-            <div className="sticky bottom-0 left-0 right-0 py-1 bg-white/90 backdrop-blur-xs flex justify-center z-40 pointer-events-none">
+            <div className="shrink-0 py-1.5 bg-white border-t border-gray-100 flex justify-center z-30">
               <div className="w-32 h-1 bg-gray-400 rounded-full" />
             </div>
           )}

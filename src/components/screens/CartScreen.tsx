@@ -22,7 +22,7 @@ export const CartScreen: React.FC = () => {
   const someSelected = selectedProducts.length > 0;
 
   return (
-    <div className="flex flex-col min-h-full bg-shopee-bgLight pb-28">
+    <div className="flex flex-col min-h-full bg-shopee-bgLight flex-1">
       {/* Promo banner header */}
       <div className="bg-amber-50 border-b border-amber-200/60 px-3.5 py-2 flex items-center justify-between text-xs text-amber-900">
         <div className="flex items-center gap-1.5 font-medium">
@@ -185,7 +185,7 @@ export const CartScreen: React.FC = () => {
       </div>
 
       {/* Floating Bottom Checkout Bar */}
-      <div className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white border-t border-gray-200 shadow-float-bottom px-3.5 py-2.5 z-20 flex items-center justify-between">
+      <div className="sticky bottom-0 left-0 right-0 w-full bg-white border-t border-gray-200 shadow-float-bottom px-3.5 py-2.5 z-20 flex items-center justify-between mt-auto">
         <label className="flex items-center gap-2 cursor-pointer select-none">
           <div
             onClick={toggleSelectAll}

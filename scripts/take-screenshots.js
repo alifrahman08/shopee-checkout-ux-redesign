@@ -49,12 +49,23 @@ async function run() {
     return false;
   }
 
+  async function capturePhone(filepath) {
+    const phoneEl = await page.$('#phone-device-frame');
+    if (phoneEl) {
+      const buffer = await phoneEl.screenshot();
+      fs.writeFileSync(filepath, buffer);
+    } else {
+      const buffer = await page.screenshot();
+      fs.writeFileSync(filepath, buffer);
+    }
+  }
+
   // 1. Screen 1: Keranjang Belanja
   console.log('Capturing Screen 1: Keranjang Belanja...');
   await clickButtonWithText('1. Keranjang');
   await sleep(800);
   const p1 = path.join(OUTPUT_DIR, '01_keranjang_belanja.png');
-  await page.screenshot({ path: p1, fullPage: false });
+  await capturePhone(p1);
   fs.copyFileSync(p1, path.join(ARTIFACT_DIR, '01_keranjang_belanja.png'));
 
   // 2. Screen 2: Checkout
@@ -62,7 +73,7 @@ async function run() {
   await clickButtonWithText('2. Checkout');
   await sleep(800);
   const p2 = path.join(OUTPUT_DIR, '02_checkout_pengiriman.png');
-  await page.screenshot({ path: p2, fullPage: false });
+  await capturePhone(p2);
   fs.copyFileSync(p2, path.join(ARTIFACT_DIR, '02_checkout_pengiriman.png'));
 
   // 3. Screen 3: Rincian Pembayaran (Fokus Utama)
@@ -70,7 +81,7 @@ async function run() {
   await clickButtonWithText('3. Rincian Biaya');
   await sleep(800);
   const p3 = path.join(OUTPUT_DIR, '03_rincian_pembayaran_utama.png');
-  await page.screenshot({ path: p3, fullPage: false });
+  await capturePhone(p3);
   fs.copyFileSync(p3, path.join(ARTIFACT_DIR, '03_rincian_pembayaran_utama.png'));
 
   // 4. Modal: Transparansi Rumus Perhitungan
@@ -78,7 +89,7 @@ async function run() {
   await clickButtonWithText('Cara Hitung');
   await sleep(700);
   const p4 = path.join(OUTPUT_DIR, '06_modal_transparansi_rumus.png');
-  await page.screenshot({ path: p4, fullPage: false });
+  await capturePhone(p4);
   fs.copyFileSync(p4, path.join(ARTIFACT_DIR, '06_modal_transparansi_rumus.png'));
   await clickButtonWithText('Saya Mengerti');
   await sleep(500);
@@ -88,7 +99,7 @@ async function run() {
   await clickButtonWithText('Ubah Voucher');
   await sleep(700);
   const p5 = path.join(OUTPUT_DIR, '07_modal_pilihan_voucher.png');
-  await page.screenshot({ path: p5, fullPage: false });
+  await capturePhone(p5);
   fs.copyFileSync(p5, path.join(ARTIFACT_DIR, '07_modal_pilihan_voucher.png'));
   await clickButtonWithText('Gunakan Voucher');
   await sleep(500);
@@ -98,7 +109,7 @@ async function run() {
   await clickButtonWithText('4. Konfirmasi');
   await sleep(800);
   const p6 = path.join(OUTPUT_DIR, '04_konfirmasi_pembayaran.png');
-  await page.screenshot({ path: p6, fullPage: false });
+  await capturePhone(p6);
   fs.copyFileSync(p6, path.join(ARTIFACT_DIR, '04_konfirmasi_pembayaran.png'));
 
   // 7. Screen 5: Pembayaran Berhasil
@@ -106,7 +117,7 @@ async function run() {
   await clickButtonWithText('5. Berhasil');
   await sleep(1000);
   const p7 = path.join(OUTPUT_DIR, '05_pembayaran_berhasil.png');
-  await page.screenshot({ path: p7, fullPage: false });
+  await capturePhone(p7);
   fs.copyFileSync(p7, path.join(ARTIFACT_DIR, '05_pembayaran_berhasil.png'));
 
   console.log('All screenshots captured successfully!');
