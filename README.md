@@ -1,6 +1,8 @@
 # Shopee Checkout UX Redesign 🛍️
 > **Tugas Rekayasa Interaksi — Worksheet 12: Wireframe & Interactive Prototype**
 
+🌐 **Live Demo (Vercel)**: [https://shopee-checkout-ux-redesign.vercel.app](https://shopee-checkout-ux-redesign.vercel.app)
+
 Proyek ini adalah prototipe antarmuka dan interaksi pengguna (UI/UX) web interaktif yang merancang ulang alur checkout Shopee. Fokus inovasi utama adalah memecahkan kebingungan pengguna dalam memeriksa dan memastikan rincian pembayaran serta total akhir yang harus dibayar.
 
 ---
